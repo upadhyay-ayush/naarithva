@@ -69,16 +69,16 @@ const Categories = () => {
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="group flex flex-col items-center text-center min-w-[9rem] cursor-pointer"
+                className="group flex flex-col items-center text-center min-w-[6rem] sm:min-w-[7rem] md:min-w-[9rem] cursor-pointer"
               >
-                <div className="w-52 h-52 rounded-full overflow-hidden shadow-md border-4 border-white group-hover:border-[#7534A9] transition-all duration-300">
+                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-52 md:h-52 rounded-full overflow-hidden shadow-md border-4 border-white group-hover:border-[#7534A9] transition-all duration-300">
                   <img
                     src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <span className="mt-4 text-lg font-semibold text-black group-hover:text-[#7534A9] transition-colors">
+                <span className="mt-3 text-sm sm:text-base md:text-lg font-semibold text-black group-hover:text-[#7534A9] transition-colors">
                   {category.name}
                 </span>
               </div>

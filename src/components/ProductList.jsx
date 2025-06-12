@@ -125,7 +125,7 @@ const products = [
 
 const ProductList = () => {
   return (
-    <div className="py-12 px-4 bg-gray-50">
+    <div className="py-2 md:py-12 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800 ">
