@@ -100,7 +100,7 @@ const Navbar = () => {
             <Link to="/cart" className="flex items-center relative">
               <ShoppingCart className="w-6 h-6" />
               <span className="absolute -top-2 -right-2 bg-white text-[#7534A9] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-               0
+                0
               </span>
               <span className="ml-2 hidden md:block">Cart</span>
             </Link>
@@ -158,36 +158,71 @@ const Navbar = () => {
       </nav>
 
       {/* Secondary Dropdown Menu */}
+      {/* Secondary Dropdown Menu */}
       <div className="bg-white shadow-md text-sm">
-        <div className="max-w-7xl mx-auto px-4 flex space-x-6 h-12 items-center relative">
-          {secondaryMenuItems.map((item, index) => (
-            <div
-              key={index}
-              className="relative group"
-              onMouseEnter={() => setActiveDropdown(index)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-[#7a28a9] font-medium transition">
-                {item.title}
-                <ChevronDown size={14} />
-              </button>
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          {/* Desktop View */}
+          <div className="hidden md:flex space-x-6 items-center">
+            {secondaryMenuItems.map((item, index) => (
+              <div
+                key={index}
+                className="relative group"
+                onMouseEnter={() => setActiveDropdown(index)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="flex items-center gap-1 text-gray-700 hover:text-[#7a28a9] font-medium transition">
+                  {item.title}
+                  <ChevronDown size={14} />
+                </button>
 
-              {/* Dropdown */}
-              {activeDropdown === index && (
-                <div className="absolute top-full mt-2 left-0 w-48 bg-white border rounded shadow-lg z-50">
-                  {item.dropdown.map((drop, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 text-gray-800"
-                    >
-                      {drop}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                {/* Dropdown */}
+                {activeDropdown === index && (
+                  <div className="absolute top-full mt-2 left-0 w-48 bg-white border rounded shadow-lg z-50">
+                    {item.dropdown.map((drop, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 text-gray-800"
+                      >
+                        {drop}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile View */}
+          <div className="md:hidden">
+            <details className="w-full">
+              <summary className="font-medium text-gray-700 py-2 cursor-pointer flex justify-between items-center">
+                Explore Categories
+                <ChevronDown className="inline w-4 h-4 ml-1" />
+              </summary>
+              <div className="pt-2 pb-3 space-y-2">
+                {secondaryMenuItems.map((item, index) => (
+                  <details key={index} className="pl-2">
+                    <summary className="text-gray-800 py-1 cursor-pointer flex justify-between items-center">
+                      {item.title}
+                      <ChevronDown className="inline w-4 h-4 ml-1" />
+                    </summary>
+                    <div className="pl-4 pt-1">
+                      {item.dropdown.map((drop, i) => (
+                        <a
+                          key={i}
+                          href="#"
+                          className="block py-1 text-gray-600 hover:text-[#7a28a9]"
+                        >
+                          {drop}
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </>

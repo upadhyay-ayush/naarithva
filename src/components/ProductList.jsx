@@ -131,20 +131,10 @@ const ProductList = () => {
           <h2 className="text-3xl font-bold text-gray-800 ">
             Traditional Collection
           </h2>
-          <div className="flex space-x-2">
-            <button className="px-4 py-2 bg-[#7534A9] text-white rounded-md hover:bg-indigo-700 transition">
-              Sarees
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition">
-              Lehengas
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 transition">
-              Suits
-            </button>
-          </div>
+   
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {products.map((product) => (
             <div
               key={product.id}
@@ -159,9 +149,7 @@ const ProductList = () => {
                 <span className="absolute top-2 left-2 bg-[#7534A9] text-white text-xs px-2 py-1 rounded">
                   {product.discount}% OFF
                 </span>
-                <span className="absolute top-2 right-2 bg-white text-gray-800 text-xs px-2 py-1 rounded-full shadow flex items-center">
-                  ⭐ {product.rating} ({product.reviews})
-                </span>
+              
               </div>
               <div className="p-4">
                 <span className="text-sm text-gray-500">
